@@ -4,10 +4,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,15 +29,16 @@ fun ProfileHeader() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .wrapContentHeight()
+            .wrapContentHeight(),
+        contentAlignment = Alignment.TopCenter
     ) {
         Image(
             painter = painterResource(id = R.drawable.profile_screen),
             contentDescription = "Foto de capa",
             modifier = Modifier
-                .size(300.dp)
-                .align(Alignment.BottomCenter)
-                .border(6.dp, MaterialTheme.colorScheme.outline),
+                .fillMaxWidth()
+                .height(200.dp)
+                .clip((RoundedCornerShape(16.dp))),
 
             contentScale = ContentScale.Crop
         )
@@ -47,8 +51,7 @@ fun ProfileHeader() {
                 .align(Alignment.BottomCenter)
                 .offset(y = avatarHalf)
                 .clip(CircleShape)
-                .border(0.dp, MaterialTheme.colorScheme.background),
-
+                .border(4.dp, MaterialTheme.colorScheme.background, CircleShape),
             contentScale = ContentScale.Crop
         )
     }
