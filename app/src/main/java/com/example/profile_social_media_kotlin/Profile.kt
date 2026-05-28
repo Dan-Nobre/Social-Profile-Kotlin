@@ -8,6 +8,5 @@ data class Profile(
     val posts: Int,
     val followers: Int,
     val following: Int,
-    val isVerifier: Boolean,
     val isFollowing: Boolean
 )
